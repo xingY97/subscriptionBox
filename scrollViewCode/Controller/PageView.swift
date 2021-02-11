@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIScrollViewDelegate {
+class PageView: UIViewController, UIScrollViewDelegate {
     
     var pageControl : UIPageControl = {
         let pageControl = UIPageControl()
@@ -97,6 +97,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl.currentPage = Int(pageNumber)
     }
-    
+   
+
 }
 
