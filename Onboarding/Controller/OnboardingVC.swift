@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PageView: UIViewController, UIScrollViewDelegate {
+class OnboardingVC: UIViewController, UIScrollViewDelegate {
     
     var pageControl : UIPageControl = {
         let pageControl = UIPageControl()
@@ -16,7 +16,7 @@ class PageView: UIViewController, UIScrollViewDelegate {
         pageControl.currentPage = 0
         return pageControl
     }()
-        
+    
     
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -32,13 +32,12 @@ class PageView: UIViewController, UIScrollViewDelegate {
         container.distribution = .fillEqually
         container.translatesAutoresizingMaskIntoConstraints = false
         return container
+        
     }()
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.addSubview(scrollView)
         setUpScrollView()
         scrollView.addSubview(container)
@@ -51,10 +50,10 @@ class PageView: UIViewController, UIScrollViewDelegate {
         
         let secondPage = OnboardingView(color: #colorLiteral(red: 0.2167053504, green: 0.9412223697, blue: 0.7895563811, alpha: 1), message: "Subscribe to yuor first box", isLastPage: false, imageName: "food")
         
-        let thirdPage = OnboardingView(color: #colorLiteral(red: 0.5544445669, green: 0.594695744, blue: 0.9412223697, alpha: 1), message: "Get snacks and toys that your pet will love", isLastPage: true, imageName: "phone ")
-     
+        let thirdPage = OnboardingView(color: #colorLiteral(red: 0.5544445669, green: 0.594695744, blue: 0.9412223697, alpha: 1), message: "Get snacks and toys that your pet will love", isLastPage: true, imageName: "phone")
+        thirdPage.subscribeButton.addTarget(self, action: #selector(self.goNext), for: .touchUpInside)
         
-
+        
         let pagesArray = [firstPage, secondPage, thirdPage]
         
         for page in pagesArray {
@@ -68,7 +67,7 @@ class PageView: UIViewController, UIScrollViewDelegate {
         pageControl.heightAnchor.constraint(equalToConstant: 40).isActive = true
         pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
         pageControl.numberOfPages = pagesArray.count
-
+        
     }
     func setUpScrollView() {
         scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -89,15 +88,24 @@ class PageView: UIViewController, UIScrollViewDelegate {
         
         let page = UIView()
         
-
+        
         return page
     }
-
+    
     func scrollViewDidEndDecelerating(_ scrollViww: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl.currentPage = Int(pageNumber)
+        
     }
-   
-
+    
+    @objc func goNext(){
+        let initialpage = LoginVC()
+        self.navigationController?.pushViewController(initialpage, animated: true)
+    }
 }
+
+
+
+
+
 

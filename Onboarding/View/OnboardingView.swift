@@ -14,10 +14,17 @@ class OnboardingView: UIView {
     var isLastPage: Bool!
     var imageName: String!
     
+    let subscribeButton: UIButton = {
+        let subscribeButton = UIButton()
+        subscribeButton.setTitle("Subscribe Now", for: .normal)
+        subscribeButton.setTitleColor(#colorLiteral(red: 0.9412223697, green: 0.3539934321, blue: 0.5135805739, alpha: 1), for: .normal)
+        subscribeButton.backgroundColor = UIColor(white: 1.0, alpha: 0.8)
+        return subscribeButton
+    }()
     
     override init(frame:CGRect){
         super.init(frame: frame)
-     
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,13 +46,6 @@ class OnboardingView: UIView {
         self.backgroundColor = pageColor
         self.translatesAutoresizingMaskIntoConstraints = false
         
-        let subscribeButton: UIButton = {
-            let subscribeButton = UIButton()
-            subscribeButton.setTitle("Subscribe Now", for: .normal)
-            subscribeButton.setTitleColor(#colorLiteral(red: 0.9412223697, green: 0.3539934321, blue: 0.5135805739, alpha: 1), for: .normal)
-            subscribeButton.backgroundColor = UIColor(white: 1.0, alpha: 0.8)
-            return subscribeButton
-        }()
         
         let stackView : UIStackView = {
             let stackView = UIStackView()
@@ -79,12 +79,12 @@ class OnboardingView: UIView {
         stackView.heightAnchor.constraint(equalTo: self.layoutMarginsGuide.heightAnchor, multiplier: 0.5) . isActive = true
         stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor) .isActive = true
         stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor) .isActive = true
-
+        
         
         stackView.addArrangedSubview(imageView)
         imageView.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.6) .isActive = true
         stackView.addArrangedSubview(messageLabel)
-
+        
         imageView.image = UIImage(named: imageName)
         messageLabel.text = message
         self.backgroundColor = pageColor
@@ -94,7 +94,8 @@ class OnboardingView: UIView {
             subscribeButton.heightAnchor.constraint(equalToConstant: 40) .isActive = true
             subscribeButton.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         }
+        
     }
+    
 }
-
 
