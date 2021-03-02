@@ -19,6 +19,8 @@ class OnboardingView: UIView {
         subscribeButton.setTitle("Subscribe Now", for: .normal)
         subscribeButton.setTitleColor(#colorLiteral(red: 0.9412223697, green: 0.3539934321, blue: 0.5135805739, alpha: 1), for: .normal)
         subscribeButton.backgroundColor = UIColor(white: 1.0, alpha: 0.8)
+        subscribeButton.layer.cornerRadius = 10
+        subscribeButton.layer.masksToBounds = true
         return subscribeButton
     }()
     

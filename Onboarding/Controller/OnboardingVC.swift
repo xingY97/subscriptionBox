@@ -46,12 +46,12 @@ class OnboardingVC: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         
         
-        let firstPage = OnboardingView(color: #colorLiteral(red: 0.9412223697, green: 0.4081160426, blue: 0.3795590997, alpha: 1), message: "Tell us about your pet's personality", isLastPage: false, imageName: "dog")
+        let firstPage = OnboardingView(color: #colorLiteral(red: 0.9412223697, green: 0.4081160426, blue: 0.3795590997, alpha: 1), message: "Tell us about your favorite flavor", isLastPage: false, imageName: "dog")
         
         let secondPage = OnboardingView(color: #colorLiteral(red: 0.2167053504, green: 0.9412223697, blue: 0.7895563811, alpha: 1), message: "Subscribe to yuor first box", isLastPage: false, imageName: "food")
         
-        let thirdPage = OnboardingView(color: #colorLiteral(red: 0.5544445669, green: 0.594695744, blue: 0.9412223697, alpha: 1), message: "Get snacks and toys that your pet will love", isLastPage: true, imageName: "phone")
-        thirdPage.subscribeButton.addTarget(self, action: #selector(self.goNext), for: .touchUpInside)
+        let thirdPage = OnboardingView(color: #colorLiteral(red: 0.5544445669, green: 0.594695744, blue: 0.9412223697, alpha: 1), message: "Get custom ice creans every month", isLastPage: true, imageName: "phone")
+        thirdPage.subscribeButton.addTarget(self, action: #selector(self.goLogin), for: .touchUpInside)
         
         
         let pagesArray = [firstPage, secondPage, thirdPage]
@@ -98,7 +98,7 @@ class OnboardingVC: UIViewController, UIScrollViewDelegate {
         
     }
     
-    @objc func goNext(){
+    @objc func goLogin(){
         let initialpage = LoginVC()
         self.navigationController?.pushViewController(initialpage, animated: true)
     }
