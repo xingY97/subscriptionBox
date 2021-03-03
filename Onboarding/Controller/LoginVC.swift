@@ -11,7 +11,7 @@ class LoginVC: UIViewController {
     
     let logoImage: UIImageView = {
         let logo = UIImageView()
-        logo.image = UIImage(named: "ice_cream")
+        logo.image = UIImage(named: "sf")
         logo.translatesAutoresizingMaskIntoConstraints = false
         return logo
     }()
@@ -24,6 +24,7 @@ class LoginVC: UIViewController {
         usernametxt.translatesAutoresizingMaskIntoConstraints = false
         usernametxt.attributedPlaceholder = NSAttributedString(string: "username",
                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        usernametxt.borderStyle = .line
         return usernametxt
     }()
 
@@ -60,7 +61,7 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(named: "white")
+        self.view.backgroundColor = UIColor.red
         setStackView()
         button.addTarget(self, action: #selector(login), for: .touchUpInside)
     }
