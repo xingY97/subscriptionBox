@@ -23,8 +23,8 @@ class LoginVC: UIViewController {
         usernametxt.autocapitalizationType = .none
         usernametxt.translatesAutoresizingMaskIntoConstraints = false
         usernametxt.attributedPlaceholder = NSAttributedString(string: "username",
-                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        usernametxt.borderStyle = .line
+                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        usernametxt.borderStyle = .roundedRect
         return usernametxt
     }()
 
@@ -35,7 +35,8 @@ class LoginVC: UIViewController {
         passwordtxt.isSecureTextEntry = true
         passwordtxt.translatesAutoresizingMaskIntoConstraints = false
         passwordtxt.attributedPlaceholder = NSAttributedString(string: "password",
-                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        passwordtxt.borderStyle = .roundedRect
         return passwordtxt
     }()
     
@@ -53,15 +54,15 @@ class LoginVC: UIViewController {
     let stackView : UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 20
-        stackView.distribution = .fill
+        stackView.spacing = 40
+        stackView.distribution = .equalSpacing
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.red
+        self.view.backgroundColor = UIColor.black
         setStackView()
         button.addTarget(self, action: #selector(login), for: .touchUpInside)
     }
@@ -77,7 +78,7 @@ class LoginVC: UIViewController {
         logoImage.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.6).isActive = true
         stackView.addArrangedSubview(username)
         stackView.addArrangedSubview(password)
-        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 20).isActive = true
         stackView.addArrangedSubview(button)
         
     }
