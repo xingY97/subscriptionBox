@@ -61,48 +61,17 @@ class IceCreamCell: UITableViewCell {
 
     
     func setup(){
-        self.backgroundColor = UIColor.purple
-        self.translatesAutoresizingMaskIntoConstraints = false
+        self.contentView.addSubview(stack)
+        NSLayoutConstraint.activate([
+            stack.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
+            stack.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10),
+            stack.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
+            stack.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10)
+        ])
+        stack.addArrangedSubview(boxImage)
         
+        boxImage.heightAnchor.constraint(equalTo: self.stack.heightAnchor).isActive = true
+        boxImage.widthAnchor.constraint(equalTo: boxImage.heightAnchor).isActive = true
         
-        let stackView : UIStackView = {
-            let stackView = UIStackView()
-            stackView.axis = .vertical
-            stackView.axis = .vertical
-            stackView.spacing = 20
-            stackView.distribution = .fill
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            return stackView
-        }()
-        
-        let imageView: UIImageView = {
-            let imageView = UIImageView()
-            imageView.contentMode = .scaleAspectFit
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            return imageView
-        }()
-        
-        let messageLabel: UILabel = {
-            let messageLabel = UILabel()
-            messageLabel.numberOfLines = 0
-            messageLabel.textAlignment = .center
-            messageLabel.font = UIFont(name: "Helvetica", size: 20)
-            messageLabel.textColor = UIColor(white: 1.0, alpha: 0.8)
-            return messageLabel
-        }()
-        
-        self.addSubview(stackView)
-        
-        stackView.widthAnchor.constraint(greaterThanOrEqualTo: self.layoutMarginsGuide.widthAnchor, multiplier: 0.5) .isActive = true
-        stackView.heightAnchor.constraint(equalTo: self.layoutMarginsGuide.heightAnchor, multiplier: 0.5) . isActive = true
-        stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor) .isActive = true
-        stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor) .isActive = true
-        
-        
-        stackView.addArrangedSubview(imageView)
-        imageView.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.6) .isActive = true
-        stackView.addArrangedSubview(messageLabel)
-        
-}
-
+    }
 }
