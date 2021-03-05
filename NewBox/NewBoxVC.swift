@@ -13,7 +13,7 @@ class NewBoxVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "NewBox"
+        self.title = "NEWBOX"
 
         
     }
