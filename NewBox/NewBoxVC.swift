@@ -13,9 +13,9 @@ class NewBoxVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(named: "pink")
         self.title = "NewBox"
 
+        
     }
 }
 
