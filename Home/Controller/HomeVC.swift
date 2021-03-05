@@ -10,7 +10,7 @@ import UIKit
 
 class HomeVC: UIViewController {
     
-    let flavors : [Category] = [.strawBerry, .cheesecake, .peach]
+    let flavors : [Flavor] = [.strawBerry, .cheesecake, .peach]
     var collectionView: UICollectionView!
     
     lazy var sections: [Section] = [
@@ -44,7 +44,6 @@ class HomeVC: UIViewController {
         collectionView.register(UINib(nibName: "TitleCell", bundle: .main), forCellWithReuseIdentifier: "TitleCell")
         collectionView.register(UINib(nibName: "FeaturedCell", bundle: .main), forCellWithReuseIdentifier: "FeaturedCell")
         collectionView.register(UINib(nibName: "FavoritesCell", bundle: .main), forCellWithReuseIdentifier: "FavoritesCell")
-        collectionView.register(UINib(nibName: "GridCell", bundle: .main), forCellWithReuseIdentifier: "GridCell")
         self.view.addSubview(collectionView)
         collectionView.reloadData()
     }

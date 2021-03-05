@@ -11,9 +11,9 @@ import UIKit
 struct FeaturedSection: Section {
     
     var numberOfItems: Int
-    let items: [Category]!
+    let items: [Flavor]!
     
-    init(items: [Category]) {
+    init(items: [Flavor]) {
         self.items = items
         self.numberOfItems = items.count
     }
@@ -36,9 +36,6 @@ struct FeaturedSection: Section {
         
         return section
     }
-    
-    
-
     
     func configureCell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: FeaturedCell.self), for: indexPath) as? FeaturedCell

@@ -25,8 +25,7 @@ class FeaturedCell: UICollectionViewCell {
         mainLabel.textColor = UIColor(named: "white")
     }
     
-    func setContents(category: Category){
-        imgView.image = UIImage(named: category.rawValue)
+    func setContents(category: Flavor){
         mainLabel.text = category.displayName()
     }
 }

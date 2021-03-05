@@ -7,7 +7,21 @@
 
 import Foundation
 
-enum Category: String, CaseIterable{
+
+struct IceCreamBox{
+    var date: Date
+    var items: [BoxItem]
+    var imageStr: String
+}
+
+
+struct BoxItem {
+    var name: String
+    var flavor: [Flavor]
+    var isFavorite: Bool
+}
+
+enum Flavor: String, CaseIterable{
     case strawBerry = "strawBerry"
     case peach = "peach"
     case cheesecake = "cheesecake"
