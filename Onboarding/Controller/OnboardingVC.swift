@@ -47,6 +47,7 @@ class OnboardingVC: UIViewController, UIScrollViewDelegate {
         
         
         let firstPage = OnboardingView(color: #colorLiteral(red: 0.9412223697, green: 0.4081160426, blue: 0.3795590997, alpha: 1), message: "Tell us about your favorite flavor", isLastPage: false, imageName: "dog")
+
         
         let secondPage = OnboardingView(color: #colorLiteral(red: 0.2167053504, green: 0.9412223697, blue: 0.7895563811, alpha: 1), message: "Subscribe to yuor first box", isLastPage: false, imageName: "food")
         

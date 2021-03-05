@@ -33,8 +33,10 @@ class HomeVC: UIViewController {
         self.view.backgroundColor = UIColor(named: "white")
         self.title = "Home"
         setupCollectionView()
+        
 
     }
+
     
     func setupCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: collectionViewLayout)
