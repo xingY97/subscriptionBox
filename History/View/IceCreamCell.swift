@@ -27,6 +27,23 @@ class IceCreamCell: UITableViewCell {
         return stack
     }()
     
+    let boxImage: UIImageView = {
+        let box = UIImageView()
+        box.clipsToBounds = true
+        box.contentMode = .scaleAspectFit
+        box.translatesAutoresizingMaskIntoConstraints = false
+        return box
+    }()
+    
+    let dateLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.font = UIFont(name: "Helvetica", size: 18)
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        return lbl
+    }()
+
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

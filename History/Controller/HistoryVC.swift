@@ -21,6 +21,7 @@ class HistoryVC: UIViewController {
         return table
     }()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "blue")
@@ -47,7 +48,7 @@ class HistoryVC: UIViewController {
         let item3 = BoxItem(name: "Peach", flavor: [.peach], isFavorite: true)
         
         for _ in 0...4{
-            let box = IceCreamBox(date: Date(), items: [item, item2, item3], imageStr: "")
+            let box = IceCreamBox(date: Date(), items: [item, item2, item3], imageStr: "shippingbox")
             iceCreamArray.append(box)
         }
 }
@@ -59,8 +60,11 @@ extension HistoryVC: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "IceCreamCell", for: indexPath)
-        //let itemBox = iceCreamArray[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IceCreamCell", for: indexPath) as! IceCreamCell
+        let itemBox = iceCreamArray[indexPath.row]
+        cell.boxImage.image = UIImage(systemName: itemBox.imageStr)
+        
+       
         return cell
     }
 }
